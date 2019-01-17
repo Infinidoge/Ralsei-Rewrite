@@ -9,10 +9,11 @@ Description:
     and base commands, such as echo and shutdown, will be housed here.
 ------------------------------
 List of officially supported cogs and their creators:
-    -
+    - cog_random.py (Created by Infinidoge
 
 List of officially supported utils and their creators:
     - config.py (Created by Infinidoge)
+    - misc.py (Created by Infinidoge)
 ------------------------------
 Contributors:
     - Infinidoge (Creator)

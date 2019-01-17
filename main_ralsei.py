@@ -33,9 +33,6 @@ Misc Notes:
 import discord
 import discord.ext.commands as commands
 
-# Sanic - provides an asynchronous webserver
-import sanic
-
 # Asyncio - utilities and pieces for asynchronous programming
 import asyncio
 
@@ -44,10 +41,6 @@ from utils.config import Config
 from utils.misc import *
 
 # ------------------------------
-
-
-class WebServer(sanic.Sanic):
-    pass
 
 
 class Ralsei(commands.Bot):
@@ -165,19 +158,6 @@ class Ralsei(commands.Bot):
                      else input("Temp Token:"))
         except Exception as e:
             print("An Exception occurred when trying to run Ralsei with that token:\n%s" % str(e))
-
-    def web_run(self, token=None):
-        # `bot.run` starts the event loop, avoid it and use `bot.start` instead
-        bot_app = self.start(token)
-        bot_task = asyncio.ensure_future(bot_app)
-
-        # create the sanic app server, but without starting it:
-        webserver = app.create_server(host="0.0.0.0", port=8080)
-        webserver_task = asyncio.ensure_future(webserver)
-
-        # finally, start the event loop:
-        loop = asyncio.get_event_loop()
-        loop.run_forever()  # runs both tasks at the same time
 
 
 ralsi = Ralsei()

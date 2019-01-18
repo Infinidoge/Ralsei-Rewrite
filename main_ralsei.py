@@ -161,5 +161,5 @@ class Ralsei(commands.Bot):
             print("An Exception occurred when trying to run Ralsei with that token:\n%s" % str(e))
 
 
-ralsi = Ralsei()
-ralsi.ralsei_run()
+ralsei = Ralsei()
+ralsei.ralsei_run()

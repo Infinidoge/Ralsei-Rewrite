@@ -7,6 +7,15 @@ Description:
 ------------------------------
 """
 
+# ------------------------------
+#           Imports
+
+# os - operating system level utilities
+from os import listdir
+from os.path import isfile, join
+
+# ------------------------------
+
 
 def get_vars(cls):
     """
@@ -16,6 +25,7 @@ def get_vars(cls):
     :param cls:
     :return variables:
     """
+
     return [a for a in dir(cls) if not a.startswith('__') and not callable(getattr(cls,a))]
 
 
@@ -27,6 +37,7 @@ def get_func(cls):
     :param cls:
     :return functions:
     """
+
     return [a for a in dir(cls) if not a.startswith('__') and callable(getattr(cls, a))]
 
 
@@ -38,4 +49,17 @@ def get_all(cls):
     :param cls:
     :return attributes:
     """
+
     return [a for a in dir(cls)]
+
+
+def get_files(path):
+    """
+    Takes an input path to a directory and returns a list of the filenames of all of the files in said directory
+
+
+    :param path:
+    :return files:
+    """
+
+    return [f for f in listdir(path) if isfile(join(path, f))]

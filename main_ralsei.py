@@ -162,4 +162,5 @@ class Ralsei(commands.Bot):
 
 
 ralsei = Ralsei()
+ralsei.add_cog(__import__("cogs", fromlist=["cog_random"]).cog_random.Random(ralsei))
 ralsei.ralsei_run()

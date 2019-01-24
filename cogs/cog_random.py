@@ -4,8 +4,8 @@ Ralsei cogs/random
 Written by Infinidoge
 ------------------------------
 Description:
-    Utility base for managing Ralsei configs. Provides the Config class, which will be typically
-    instantiated to provide configuration information to the Ralsei class
+    Cog for Ralsei containing commands related to generating random results, such as rolling dice or picking a random
+    object from a list.
 ------------------------------
 Contributors:
     - Infinidoge (Creator)

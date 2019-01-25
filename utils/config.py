@@ -15,6 +15,9 @@ Description:
 # Config Parser - Allows creation, modification, and reading of .ini config files
 from configparser import ConfigParser, ExtendedInterpolation
 
+# os - Operating system level utilities
+import os
+
 # Utils
 from utils.misc import *
 
@@ -131,9 +134,9 @@ class Config:
                                   "case_insensitive": "False",
                                   "pm_help": "False"}
 
-        config["RalseiPaths"] = {"Ralsei_Dir": "",
-                                 "CMDs_Dir": "%{Ralsei_Dir}/cmds",
-                                 "Cogs_Dir": "%{Ralsei_Dir}/cogs"}
+        config["RalseiPaths"] = {"Ralsei_Dir": os.getcwd(),
+                                 "CMDs_Dir": "%{Ralsei_Dir}\\cmds",
+                                 "Cogs_Dir": "%{Ralsei_Dir}\\cogs"}
 
         config["RalseiPresence"] = {"RalseiPlaying": "In an Unknown World",
                                     "HostDetails":   "In an Unknown World",

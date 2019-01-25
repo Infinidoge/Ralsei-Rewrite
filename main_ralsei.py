@@ -152,6 +152,12 @@ class Ralsei(commands.Bot):
 
         self.BaseEvents(self).__events__()
 
+        for cls in [i.__getattribute__(get_func(i)[0]) for i in
+                    (lambda z: [z.__getattribute__(x) for x in get_vars(z)])(
+                        __import__("cogs", fromlist=[i[:len(i) - 3] for i in
+                                                     get_files(self.config.cogs_dir)]))]:
+            self.add_cog(cls(self))
+
     def ralsei_run(self, token=None):
         try:
             self.run(token if token is not None else
@@ -162,5 +168,4 @@ class Ralsei(commands.Bot):
 
 
 ralsei = Ralsei()
-ralsei.add_cog(__import__("cogs", fromlist=["cog_random"]).cog_random.Random(ralsei))
 ralsei.ralsei_run()

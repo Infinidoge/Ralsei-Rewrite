@@ -135,8 +135,8 @@ class Config:
                                   "pm_help": "False"}
 
         config["RalseiPaths"] = {"Ralsei_Dir": os.getcwd(),
-                                 "CMDs_Dir": "%{Ralsei_Dir}\\cmds",
-                                 "Cogs_Dir": "%{Ralsei_Dir}\\cogs"}
+                                 "CMDs_Dir": "${Ralsei_Dir}/cmds",
+                                 "Cogs_Dir": "${Ralsei_Dir}/cogs"}
 
         config["RalseiPresence"] = {"RalseiPlaying": "In an Unknown World",
                                     "HostDetails":   "In an Unknown World",
@@ -159,6 +159,7 @@ class Config:
         """
 
         self.config_file = config_file
+        self.config = None
         self.refresh()
 
     def refresh(self):
@@ -168,6 +169,7 @@ class Config:
         :return:
         """
         config = self._read()
+
         for i in config.sections():
             for x in config[i]:
                 self.__setattr__(x, config[i][x])

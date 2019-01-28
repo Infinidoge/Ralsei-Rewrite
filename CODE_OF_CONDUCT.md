@@ -67,6 +67,8 @@ Project maintainers who do not follow or enforce the Code of Conduct in good
 faith may face temporary or permanent repercussions as determined by other
 members of the project's leadership.
 
+Note that when contacting the previously mentioned address, you will recieve an email from the adress of a maintainer, with the subject pertaining to the issue.
+
 ## Attribution
 
 This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4,

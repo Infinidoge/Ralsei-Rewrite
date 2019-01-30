@@ -34,14 +34,6 @@ class Random:
         Cog for ralsei which contains all commands related to generating random results, such as flipping a coin or
         rolling dice.
     ------------------------------
-    Commands:
-      1.roll
-            Rolls a dice in NdM±X format(Ex. 1d20+5, 1d8-3, 1d4)
-      2.flip
-            Flips a coin
-      3.choose
-            Randomly chooses 1 thing from a provided list, separated by ', '
-    ------------------------------
     Events:
       - Not Applicable -
     ------------------------------

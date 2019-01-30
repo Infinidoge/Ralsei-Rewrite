@@ -185,16 +185,16 @@ class Config:
         self.__setattr__(field, value)
         self._write()
 
-    def batch_update(self, set: dict):
+    def batch_update(self, batch: dict):
         """
         Takes a dictionary of field:value key pairs and updates all of them in order before updating the config
         Note: will only update attributes that are listed in the config file, all others will be ignored
 
-        :param set:
+        :param batch:
         :return:
         """
-        for i in set.keys():
+        for i in batch.keys():
             if i in get_vars(self):
-                self.__setattr__(i, set[i])
+                self.__setattr__(i, batch[i])
 
         self._write()

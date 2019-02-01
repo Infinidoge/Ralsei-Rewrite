@@ -63,3 +63,29 @@ def get_files(path):
     """
 
     return [f for f in listdir(path) if isfile(join(path, f))]
+
+
+def replace_greater(iterable, index, val):
+    """
+    Takes an iterable, iter, and replaces the value at index with val if val is greater than the value at index
+
+    :param iterable:
+    :param index:
+    :param val:
+    :return:
+    """
+    iterable[index] = val if iterable[index] < val else iterable[index]
+    return iterable
+
+
+def replace_lesser(iterable, index, val):
+    """
+    Takes an iterable (iterable) and replaces the value at index with val if val is less than than the value at index
+
+    :param iterable:
+    :param index:
+    :param val:
+    :return:
+    """
+    iterable[index] = val if iterable[index] < val else iterable[index]
+    return iterable

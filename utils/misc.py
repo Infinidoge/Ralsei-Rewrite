@@ -26,7 +26,7 @@ def get_vars(cls):
     :return variables:
     """
 
-    return [a for a in dir(cls) if not a.startswith('__') and not callable(getattr(cls,a))]
+    return [a for a in dir(cls) if not a.startswith('__') and not callable(getattr(cls, a))]
 
 
 def get_func(cls):
@@ -39,6 +39,18 @@ def get_func(cls):
     """
 
     return [a for a in dir(cls) if not a.startswith('__') and callable(getattr(cls, a))]
+
+
+def get_startswith(cls, prefix):
+    """
+    Takes an input class (cls) and returns all attributes of a class who's name starts with the prefix string
+
+    :param cls:
+    :param prefix:
+    :return functions:
+    """
+
+    return [a for a in dir(cls) if a.startswith(prefix)]
 
 
 def get_all(cls):
@@ -55,7 +67,7 @@ def get_all(cls):
 
 def get_files(path):
     """
-    Takes an input path to a directory and returns a list of the filenames of all of the files in said directory
+    Takes an input path to a directory and returns a list of the file names of all of the files in said directory
 
 
     :param path:

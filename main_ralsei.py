@@ -37,6 +37,11 @@ import discord.ext.commands as commands
 # Asyncio - utilities and pieces for asynchronous programming
 import asyncio
 
+# Dynamos
+import core.dynamos.cog_dynamo as cog_dynamo
+import core.dynamos.command_dynamo
+from core.dynamos.event_dynamo import *
+
 # Utils
 from utils.config import Config
 from utils.misc import *
@@ -110,35 +115,6 @@ class Ralsei(commands.Bot):
             await ctx.send(msg)
             await ctx.message.delete()
 
-    class BaseEvents:
-        """
-        Ralsei Base Class/Base Events
-        ------------------------------
-        Description:
-            Contains all of the basic events of the bot.
-            In your own version of the bot, you may add more events and they will automatically be loaded
-        ------------------------------
-        Events:
-          1.on_ready
-                Prints basic readout information when the bot is ready and active.
-        """
-
-        def __init__(self, bot):
-            self.bot = bot
-            type(self).__name__ = 'Base Events'
-
-        def __events__(self):
-            [self.bot.event(getattr(self, i)) for i in get_func(self)]
-
-        async def on_ready(self):
-            print("Ralsei  |  Online")
-            print("-------------------------")
-            print("| Logged in as:         |")
-            print("|  %s               |" % self.bot.user.name)
-            print("|-----------------------|")
-            print("| Id: %s|" % self.bot.user.id)
-            print("-------------------------")
-
     @staticmethod
     def _dynamic_prefix(bot, msg):
         return bot.config.command_prefix
@@ -146,11 +122,15 @@ class Ralsei(commands.Bot):
     def __init__(self, config=Config()):
         self.config = config
 
+        self.dynamos = {"Events": EventDynamo(
+            self,
+            {},
+            {}
+        )}
+
         super(Ralsei, self).__init__(command_prefix=self._dynamic_prefix)
 
         self.add_cog(self.BaseCommands(self))
-
-        self.BaseEvents(self).__events__()
 
         for cls in [i.__getattribute__(get_func(i)[0]) for i in
                     (lambda z: [z.__getattribute__(x) for x in get_vars(z)])(

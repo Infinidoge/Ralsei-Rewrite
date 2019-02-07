@@ -128,6 +128,8 @@ class Ralsei(commands.Bot):
             {}
         )}
 
+        # TODO: setup cog events here or in EventDynamo
+
         super(Ralsei, self).__init__(command_prefix=self._dynamic_prefix)
 
         self.add_cog(self.BaseCommands(self))

@@ -7,4 +7,4 @@ Fork the repository, add your cog to the cogs folder, and make a pull request! (
 The cog will be evaluated and if it passes, your cog will be added into the master branch at the next update.
 
 ##### This work is created under the GNU Affero General Public License v3.0
-##### A basic overview of this license and what it permits cn be found [here](https://choosealicense.com/licenses/agpl-3.0/)
+##### A basic overview of this license and what it permits can be found [here](https://choosealicense.com/licenses/agpl-3.0/)

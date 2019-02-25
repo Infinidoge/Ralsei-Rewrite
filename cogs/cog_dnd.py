@@ -31,7 +31,7 @@ from utils.misc import *
 # ------------------------------
 
 
-class DnD:
+class DnD(commands.Cog, name="D&D"):
     """
     Ralsei cogs/DnD
     ------------------------------
@@ -117,10 +117,6 @@ class DnD:
         def _get(self):
             print(self.raw_block)
             print(self.block)
-
-    def __init__(self, ralsei):
-        self.ralsei = ralsei
-        type(self).__name__ = 'D&D'
 
     @commands.command()
     async def genstats(self, ctx):

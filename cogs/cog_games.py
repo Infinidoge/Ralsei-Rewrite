@@ -28,7 +28,7 @@ from discord.ext import commands
 # ------------------------------
 
 
-class Games:
+class Games(commands.Cog):
     """
     Ralsei cogs/games
     ------------------------------
@@ -44,9 +44,6 @@ class Games:
     Classes:
       - Not Applicable -
     """
-
-    def __init__(self, ralsei):
-        self.ralsei = ralsei
 
     @commands.command()
     async def rps(self, ctx, *, player_move=None):

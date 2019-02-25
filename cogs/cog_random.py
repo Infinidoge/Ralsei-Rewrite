@@ -26,7 +26,7 @@ from discord.ext import commands
 # ------------------------------
 
 
-class Random:
+class Random(commands.Cog):
     """
     Ralsei cogs/random
     ------------------------------
@@ -40,9 +40,6 @@ class Random:
     Classes:
       - Not Applicable -
     """
-
-    def __init__(self, ralsei):
-        self.ralsei = ralsei
 
     @commands.command()
     async def roll(self, ctx, roll: str):

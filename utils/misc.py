@@ -11,7 +11,7 @@ Description:
 #           Imports
 
 # os - operating system level utilities
-from os import listdir
+from os import listdir, unlink
 from os.path import isfile, join
 
 # ------------------------------
@@ -101,3 +101,13 @@ def replace_lesser(iterable, index, val):
     """
     iterable[index] = val if iterable[index] < val else iterable[index]
     return iterable
+
+
+def delete_contents(path):
+    for the_file in listdir(path):
+        file_path = join(path, the_file)
+        try:
+            if isfile(file_path):
+                unlink(file_path)
+        except Exception as e:
+            print(e)

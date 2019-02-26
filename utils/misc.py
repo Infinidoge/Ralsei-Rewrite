@@ -17,6 +17,10 @@ from os.path import isfile, join
 # ------------------------------
 
 
+class RalseiExit(KeyboardInterrupt):
+    pass
+
+
 def get_vars(cls):
     """
     Takes an input class (cls) and returns all attributes of the class,

@@ -19,6 +19,7 @@ List of officially supported utils and their creators:
 
 List of officially supported dynamos and their creators:
     - cog_dynamo (Created by Infinidoge)
+    - extend_dynamo (Created by Infinidoge)
 ------------------------------
 Contributors:
     - Infinidoge (Creator)
@@ -39,12 +40,9 @@ Misc Notes:
 import discord
 import discord.ext.commands as commands
 
-# Asyncio - utilities and pieces for asynchronous programming
-import asyncio
-
 # Dynamos
-from core.dynamos.cog_dynamo import *
-import core.dynamos.extend_dynamo
+from core.dynamos.cog_dynamo import CogDynamo
+from core.dynamos.extend_dynamo import ExtendDynamo
 
 # Utils
 from utils.config import Config
@@ -130,17 +128,19 @@ class Ralsei(commands.Bot):
         print(f"---------------------------------------")
 
     @staticmethod
-    def _dynamic_prefix(bot, msg):
+    def _dynamic_prefix(bot, message):
         return bot.config.command_prefix
 
     def __init__(self, config=Config()):
         self.config = config
         self.name = "Ralsei"
 
-        self.dynamos = {"Cogs": CogDynamo(self, [
-            self.BaseCommands(self)
-        ]),
-                        "Commands": "placeholder"}
+        extension_dynamo = ExtendDynamo(self)
+        self.dynamos = {"Extensions": extension_dynamo,
+                        "Cogs": CogDynamo(self, [
+                            self.BaseCommands(self),
+                            extension_dynamo()
+                        ])}
 
         super(Ralsei, self).__init__(command_prefix=self._dynamic_prefix,
                                      activity=discord.Game(f"Somewhere, with "
